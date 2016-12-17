@@ -1,7 +1,7 @@
 (rule
  ((targets (options.ml))
   (deps (options.mlp enum_x_macro.h))
-  (action "cpp options.mlp > options.ml")))
+  (action "cpp options.mlp | sed 's/\s*##\s*//g;s/#.*$//;s/`\s*/`/g' > options.ml")))
 
 (library
  ((name re2)
